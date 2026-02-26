@@ -14,14 +14,18 @@ switch (status) {
     rootElement.append(settingsModeElement)
     break;
   case GAME_STATUSES.IN_PROGRESS :
-    const inProgressModeElement = GamesMode()
-    rootElement.append(inProgressModeElement)
+    const gameModeElement = GamesMode()
+    rootElement.append(gameModeElement)
     break;
   case GAME_STATUSES.LOSE :
     const LoseModeElement = LoseMode()
     rootElement.append(LoseModeElement)
     break;
+  case GAME_STATUSES.WIN :
+    const WinModeElement = "WIN"
+    rootElement.append(WinModeElement)
+    break;
   default:
-    rootElement.append(status)
+    rootElement.append("STATE IS INVALID")
 }
 
