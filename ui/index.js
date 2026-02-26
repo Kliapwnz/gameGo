@@ -6,6 +6,7 @@ import {Game} from "./game.component.js";
 const rootElement = document.getElementById('root')
 
 function render () {
+  rootElement.innerHTML= ""
 
 const status = getStatus()
 

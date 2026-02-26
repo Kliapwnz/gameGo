@@ -18,6 +18,5 @@ export function getStatus() {
 
 export function startGame() {
   _state.status = GAME_STATUSES.IN_PROGRESS
- observer()
-
+observer()
 }
