@@ -1,3 +1,5 @@
+import {startGame} from "../state/data.js";
+
 export function SettingsMode() {
   const element = document.createElement('div')
 
@@ -11,6 +13,11 @@ export function SettingsMode() {
 
   const startButtonElement = document.createElement('button')
   startButtonElement.append('START ⭐')
+
+  startButtonElement.addEventListener('click', () => {
+    startGame()
+  })
+
   element.append(startButtonElement)
 
   return element

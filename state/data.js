@@ -8,3 +8,7 @@ const _state = {
 export function getStatus() {
   return _state.status
 }
+
+export function startGame () {
+
+}
