@@ -1,4 +1,4 @@
-import {GAME_STATUSES} from "./GAME_STATUSES";
+import {GAME_STATUSES} from "./GAME_STATUSES.js";
 
 const _state = {
   status: GAME_STATUSES.SETTINGS,
