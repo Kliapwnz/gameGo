@@ -1,4 +1,4 @@
-import {startGame} from "../state/data.js";
+import {getStatus, startGame} from "../state/data.js";
 
 export function SettingsMode() {
   const element = document.createElement('div')
