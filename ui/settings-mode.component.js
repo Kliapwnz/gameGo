@@ -1,7 +1,7 @@
-export function Settings() {
+export function SettingsMode() {
   const element = document.createElement('div')
 
-  element.append('SETTINGS PAGE')
+
   const gridSizeSelectElement = document.createElement('select')
   const gridSizeOptionElement = document.createElement('option')
   gridSizeOptionElement.append('4x4')
