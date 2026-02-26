@@ -1,8 +1,10 @@
+import {Grid} from "./game-mode/grid.component.js";
+
 export function GamesMode() {
   const element = document.createElement('div')
 
 
- element.append("GRID WILL BE HERE")
+ element.append(Grid())
 
   return element
 }
