@@ -7,6 +7,11 @@ const _state = {
       rowCount: 4,
       columnCount: 4
     }
+  },
+  positions: {
+    google: {},
+    player1: {},
+    player2: {}
   }
 
 }
@@ -22,7 +27,7 @@ export function getStatus() {
   return _state.status
 }
 
-export function getGridSize () {
+export function getGridSize() {
   return _state.settings.gridSize
 }
 
