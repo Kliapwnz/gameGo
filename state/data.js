@@ -34,6 +34,7 @@ export function getGridSize() {
 export function getGooglePosition() {
   return _state.positions.google
 }
+
 export function getPlayer1Position() {
   return _state.positions.player1
 }
@@ -42,8 +43,12 @@ export function startGame() {
   _state.status = GAME_STATUSES.IN_PROGRESS
   _teleportGoogle()
   observer()
-  setInterval(_teleportGoogle, 1000)
+  setInterval(_escapeGoogle, 1000)
 
+}
+
+function _escapeGoogle() {
+  _teleportGoogle()
 }
 
 function _teleportGoogle() {
