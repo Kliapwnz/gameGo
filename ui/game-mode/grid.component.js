@@ -9,7 +9,7 @@ export const Grid = () => {
 
     for (let x = 0; x < gridSize.columnCount; x++) {
       const cell = document.createElement('td')
-      cell.append(x, '-', y)
+
       row.append(cell)
     }
     element.append(row)

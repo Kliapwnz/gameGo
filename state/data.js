@@ -9,9 +9,9 @@ const _state = {
     }
   },
   positions: {
-    google: {},
-    player1: {},
-    player2: {}
+    google: {x: 0, y: 0},
+    player1: {x: 3, y: 3},
+    player2: {x: 2, y: 2}
   }
 
 }
