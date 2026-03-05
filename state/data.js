@@ -37,13 +37,17 @@ export function getGooglePosition() {
 
 export function startGame() {
   _state.status = GAME_STATUSES.IN_PROGRESS
-  setInterval(() => {
-    _state.positions.google.x =getRandomInt (getGridSize().columnsCount);
-    _state.positions.google.y =getRandomInt (getGridSize().rowsCount);
-    observer()
-  }, 1000)
+  observer()
+  setInterval(_teleportGoogle, 1000)
+
+}
+
+function _teleportGoogle() {
+  _state.positions.google.x = getRandomInt(getGridSize().columnsCount);
+  _state.positions.google.y = getRandomInt(getGridSize().rowsCount);
   observer()
 }
-function  getRandomInt (max) {
+
+function getRandomInt(max) {
   return Math.floor(Math.random() * max)
 }
