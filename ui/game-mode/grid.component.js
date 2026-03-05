@@ -10,7 +10,7 @@ export const Grid = () => {
     for (let x = 0; x < gridSize.columnsCount; x++) {
       const cell = document.createElement('td')
       if (x === googlePosition.x && y === googlePosition.y)
-      cell.append('G')
+        cell.append('G')
       row.append(cell)
     }
     element.append(row)
