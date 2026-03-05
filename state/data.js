@@ -4,8 +4,8 @@ const _state = {
   status: GAME_STATUSES.SETTINGS,
   settings: {
     gridSize: {
-      rowCount: 4,
-      columnCount: 4
+      rowsCount: 4,
+      columnsCount: 4
     }
   },
   positions: {
@@ -38,7 +38,8 @@ export function getGooglePosition() {
 export function startGame() {
   _state.status = GAME_STATUSES.IN_PROGRESS
   setInterval(() => {
-    _state.positions.google.x =getRandomInt (4);
+    _state.positions.google.x =getRandomInt (getGridSize().columnsCount);
+    _state.positions.google.y =getRandomInt (getGridSize().rowsCount);
     observer()
   }, 1000)
   observer()
