@@ -4,7 +4,7 @@ export function GamesMode() {
   const element = document.createElement('div')
 
 
- element.append(Grid())
+  element.append(Grid())
 
   return element
 }
