@@ -46,8 +46,12 @@ export function startGame() {
 function _teleportGoogle() {
   const newX = getRandomInt(getGridSize().columnsCount)
   const newY = getRandomInt(getGridSize().rowsCount)
-  _state.positions.google.x = getRandomInt(getGridSize().columnsCount);
-  _state.positions.google.y = getRandomInt(getGridSize().rowsCount);
+  if (newX === getGooglePosition().x && newY === getGooglePosition().y) {
+    _teleportGoogle()
+    return
+  }
+  _state.positions.google.x = newX;
+  _state.positions.google.y = newY;
   observer()
 }
 
