@@ -37,12 +37,15 @@ export function getGooglePosition() {
 
 export function startGame() {
   _state.status = GAME_STATUSES.IN_PROGRESS
+  _teleportGoogle()
   observer()
   setInterval(_teleportGoogle, 1000)
 
 }
 
 function _teleportGoogle() {
+  const newX = getRandomInt(getGridSize().columnsCount)
+  const newY = getRandomInt(getGridSize().rowsCount)
   _state.positions.google.x = getRandomInt(getGridSize().columnsCount);
   _state.positions.google.y = getRandomInt(getGridSize().rowsCount);
   observer()
