@@ -31,11 +31,18 @@ export function getGridSize() {
   return _state.settings.gridSize
 }
 
-export function getGooglePosition () {
+export function getGooglePosition() {
   return _state.positions.google
 }
 
 export function startGame() {
   _state.status = GAME_STATUSES.IN_PROGRESS
+  setInterval(() => {
+    _state.positions.google.x =getRandomInt (4);
+    observer()
+  }, 1000)
   observer()
+}
+function  getRandomInt (max) {
+  return Math.floor(Math.random() * max)
 }
