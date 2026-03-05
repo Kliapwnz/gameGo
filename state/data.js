@@ -31,6 +31,10 @@ export function getGridSize() {
   return _state.settings.gridSize
 }
 
+export function getGooglePosition () {
+  return _state.positions.google
+}
+
 export function startGame() {
   _state.status = GAME_STATUSES.IN_PROGRESS
   observer()
