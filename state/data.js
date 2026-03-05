@@ -54,7 +54,7 @@ function _escapeGoogle() {
 function _teleportGoogle() {
   const newX = getRandomInt(getGridSize().columnsCount)
   const newY = getRandomInt(getGridSize().rowsCount)
-  if (newX === getGooglePosition().x && newY === getGooglePosition().y) {
+  if ((newX === getGooglePosition().x && newY === getGooglePosition().y) || (newX === getPlayer1Position().x && newY === getPlayer1Position().y)) {
     _teleportGoogle()
     return
   }
