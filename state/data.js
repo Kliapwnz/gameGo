@@ -57,7 +57,7 @@ export function movePlayer(playerNumber, direction) {
   const newCoords = {
     ..._state.positions['player' + playerNumber]
   }
-  const positionChanger = {
+  const positionReducers = {
     [MOVE_DIRECTIONS.UP]: (coords) => {
       return {
         x: coords.x,
@@ -83,6 +83,8 @@ export function movePlayer(playerNumber, direction) {
       }
     },
   }
+
+
 }
 
 function _escapeGoogle() {
