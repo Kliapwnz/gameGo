@@ -1,5 +1,5 @@
 import {GAME_STATUSES} from "./GAME_STATUSES.js";
-import {MOVE_DIRECTIONS} from "./MOVE_DIRECTIONS";
+import {MOVE_DIRECTIONS} from "./MOVE_DIRECTIONS.js";
 
 const _state = {
   status: GAME_STATUSES.SETTINGS,
@@ -81,10 +81,19 @@ export function movePlayer(playerNumber, direction) {
       }
     },
   }
+
   const reducer = positionReducers[direction]
   const newCoords = reducer(_state.positions['player' + playerNumber])
+  if (!_isInsideGrid(newCoords)) {
+    return
+  }
+  _state.positions['player' + playerNumber] = newCoords
+  observer()
+}
 
-
+function _isInsideGrid(coords) {
+  return coords.x >= 0 && coords.x < _state.settings.gridSize.columnsCount
+    && coords.y >= 0 && coords.x < _state.settings.gridSize.rowsCount
 }
 
 function _escapeGoogle() {
