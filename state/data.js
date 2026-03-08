@@ -11,7 +11,7 @@ const _state = {
   },
   positions: {
     google: {x: 0, y: 0},
-    player1: {x: 3, y: 3},
+    player1: {x: 1, y: 1},
     player2: {x: 2, y: 2}
   }
 
@@ -92,8 +92,9 @@ export function movePlayer(playerNumber, direction) {
 }
 
 function _isInsideGrid(coords) {
-  return coords.x >= 0 && coords.x < _state.settings.gridSize.columnsCount
+  return  coords.x >= 0 && coords.x < _state.settings.gridSize.columnsCount
     && coords.y >= 0 && coords.x < _state.settings.gridSize.rowsCount
+
 }
 
 function _escapeGoogle() {

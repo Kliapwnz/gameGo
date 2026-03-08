@@ -16,7 +16,7 @@ function render() {
   rootElement.append(gameElement)
 
 }
-window,addEventListener('keyup', ()=>{
+window.addEventListener('keyup', ()=>{
   console.log("hehe")
   movePlayer(1, MOVE_DIRECTIONS.DOWN)
 })
