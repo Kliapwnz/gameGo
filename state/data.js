@@ -111,6 +111,10 @@ function _isPlayerInOnePositionWithGoogle(playerNumber) {
 
 function _catchGoogle(playerNumber) {
   _state.points['player' + playerNumber]++
+  if (_state.points['player' + playerNumber] === _state.settings.pointsToWin) {
+    _state.status = GAME_STATUSES.WIN
+  }
+ 
 }
 
 function _isInsideGrid(coords) {
