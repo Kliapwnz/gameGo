@@ -54,9 +54,7 @@ export function startGame() {
  * @param {("UP"|"DOWN" | "LEFT" | "RIGHT")} direction
  */
 export function movePlayer(playerNumber, direction) {
-  const newCoords = {
-    ..._state.positions['player' + playerNumber]
-  }
+
   const positionReducers = {
     [MOVE_DIRECTIONS.UP]: (coords) => {
       return {
@@ -83,6 +81,8 @@ export function movePlayer(playerNumber, direction) {
       }
     },
   }
+  const reducer = positionReducers[direction]
+  const newCoords = reducer(_state.positions['player' + playerNumber])
 
 
 }
