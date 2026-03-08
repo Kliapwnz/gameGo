@@ -4,3 +4,11 @@ export const GAME_STATUSES = {
   WIN: "WIN",
   LOSE: "LOSE",
 }
+
+
+export const MOVE_DIRECTIONS = {
+  UP: "UP",
+  DOWN: "DOWN",
+  LEFT: "LEFT",
+  RIGHT: "RIGHT"
+}
