@@ -50,7 +50,7 @@ export function startGame() {
   _state.status = GAME_STATUSES.IN_PROGRESS
   _teleportGoogle()
   observer()
-  jumpInterval = setInterval(_escapeGoogle, 1000)
+  jumpInterval = setInterval(_escapeGoogle, 2000)
 
 }
 
@@ -117,7 +117,7 @@ function _catchGoogle(playerNumber) {
     _state.status = GAME_STATUSES.WIN
     clearInterval(jumpInterval)
   }
-
+  _teleportGoogle()
 
 }
 
