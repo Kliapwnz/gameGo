@@ -93,7 +93,7 @@ export function movePlayer(playerNumber, direction) {
 }
 
 function _isInsideGrid(coords) {
-  return  coords.x >= 0 && coords.x < _state.settings.gridSize.columnsCount
+  return coords.x >= 0 && coords.x < _state.settings.gridSize.columnsCount
     && coords.y >= 0 && coords.y < _state.settings.gridSize.rowsCount
 
 }
