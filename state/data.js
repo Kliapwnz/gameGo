@@ -13,8 +13,12 @@ const _state = {
     google: {x: 0, y: 0},
     player1: {x: 1, y: 1},
     player2: {x: 2, y: 2}
+  },
+  points: {
+    google: 0,
+    player1: 0,
+    player2: 0
   }
-
 }
 
 let observer = null
@@ -89,6 +93,10 @@ export function movePlayer(playerNumber, direction) {
     return;
   }
   _state.positions['player' + playerNumber] = newCoords
+  if (_playerCatchGoogle()) {
+
+  }
+
   observer()
 }
 
