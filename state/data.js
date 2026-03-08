@@ -93,11 +93,18 @@ export function movePlayer(playerNumber, direction) {
     return;
   }
   _state.positions['player' + playerNumber] = newCoords
-  if (_playerCatchGoogle()) {
-
+  if (_doPlayerCatchGoogle(playerNumber)) {
+    _cathGoogle(playerNumber)
   }
 
   observer()
+}
+
+function _doPlayerCatchGoogle(playerNumber) {
+  const playerPosition = _state.positions['player' + playerNumber]
+  const googlePosition = getGooglePosition()
+
+  return playerPosition.x === googlePosition.x && playerPosition.y === googlePosition.y
 }
 
 function _isInsideGrid(coords) {
