@@ -84,8 +84,9 @@ export function movePlayer(playerNumber, direction) {
 
   const reducer = positionReducers[direction]
   const newCoords = reducer(_state.positions['player' + playerNumber])
+
   if (!_isInsideGrid(newCoords)) {
-    return
+    return;
   }
   _state.positions['player' + playerNumber] = newCoords
   observer()
@@ -93,7 +94,7 @@ export function movePlayer(playerNumber, direction) {
 
 function _isInsideGrid(coords) {
   return  coords.x >= 0 && coords.x < _state.settings.gridSize.columnsCount
-    && coords.y >= 0 && coords.x < _state.settings.gridSize.rowsCount
+    && coords.y >= 0 && coords.y < _state.settings.gridSize.rowsCount
 
 }
 
