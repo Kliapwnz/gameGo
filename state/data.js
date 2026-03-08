@@ -93,14 +93,14 @@ export function movePlayer(playerNumber, direction) {
     return;
   }
   _state.positions['player' + playerNumber] = newCoords
-  if (_doPlayerCatchGoogle(playerNumber)) {
+  if (_isPlayerInOnePositionWithGoogle(playerNumber)) {
     _cathGoogle(playerNumber)
   }
 
   observer()
 }
 
-function _doPlayerCatchGoogle(playerNumber) {
+function _isPlayerInOnePositionWithGoogle(playerNumber) {
   const playerPosition = _state.positions['player' + playerNumber]
   const googlePosition = getGooglePosition()
 
