@@ -1,4 +1,5 @@
 import {GAME_STATUSES} from "./GAME_STATUSES.js";
+import {MOVE_DIRECTIONS} from "./MOVE_DIRECTIONS";
 
 const _state = {
   status: GAME_STATUSES.SETTINGS,
@@ -45,6 +46,43 @@ export function startGame() {
   observer()
   setInterval(_escapeGoogle, 1000)
 
+}
+
+/**
+ *
+ * @param {1,2}playerNumber
+ * @param {("UP"|"DOWN" | "LEFT" | "RIGHT")} direction
+ */
+export function movePlayer(playerNumber, direction) {
+  const newCoords = {
+    ..._state.positions['player' + playerNumber]
+  }
+  const positionChanger = {
+    [MOVE_DIRECTIONS.UP]: (coords) => {
+      return {
+        x: coords.x,
+        y: coords.y - 1
+      }
+    },
+    [MOVE_DIRECTIONS.DOWN]: (coords) => {
+      return {
+        x: coords.x,
+        y: coords.y + 1
+      }
+    },
+    [MOVE_DIRECTIONS.LEFT]: (coords) => {
+      return {
+        x: coords.x - 1,
+        y: coords.y
+      }
+    },
+    [MOVE_DIRECTIONS.RIGHT]: (coords) => {
+      return {
+        x: coords.x + 1,
+        y: coords.y
+      }
+    },
+  }
 }
 
 function _escapeGoogle() {
