@@ -7,7 +7,9 @@ const _state = {
     gridSize: {
       rowsCount: 4,
       columnsCount: 4
-    }
+    },
+    pointsToWin: 3,
+    pointsToLose: 3
   },
   positions: {
     google: {x: 0, y: 0},
@@ -94,7 +96,7 @@ export function movePlayer(playerNumber, direction) {
   }
   _state.positions['player' + playerNumber] = newCoords
   if (_isPlayerInOnePositionWithGoogle(playerNumber)) {
-    _cathGoogle(playerNumber)
+    _catchGoogle(playerNumber)
   }
 
   observer()
@@ -105,6 +107,10 @@ function _isPlayerInOnePositionWithGoogle(playerNumber) {
   const googlePosition = getGooglePosition()
 
   return playerPosition.x === googlePosition.x && playerPosition.y === googlePosition.y
+}
+
+function _catchGoogle(playerNumber) {
+  _state.points['player' + playerNumber]++
 }
 
 function _isInsideGrid(coords) {
