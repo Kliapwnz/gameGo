@@ -9,7 +9,7 @@ export function LoseMode() {
   return element
 }
 
-LoseMode.render = ( element) => {
+LoseMode.render = (element) => {
   const playAgainButtonElement = document.createElement('button')
   playAgainButtonElement.append('PLAY AGAIN 🎈 ')
   element.append(playAgainButtonElement)
