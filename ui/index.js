@@ -8,9 +8,9 @@ const rootElement = document.getElementById('root')
 
 function render() {
 
-  const gameElement = Game()
+  const gameInstance = Game()
 
-  rootElement.append(gameElement)
+  rootElement.append(gameInstance.element)
 
 }
 

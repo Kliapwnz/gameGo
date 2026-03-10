@@ -6,7 +6,7 @@ export function GamesMode() {
   GamesMode.render(element)
 
 
-  return element
+  return {element}
 }
 
 GamesMode.render = (element) => {

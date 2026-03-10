@@ -6,7 +6,7 @@ export function SettingsMode() {
 
   SettingsMode.render(element)
 
-  return element
+  return {element}
 }
 
 SettingsMode.render = (element) => {

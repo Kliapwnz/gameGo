@@ -7,7 +7,7 @@ export const Grid = () => {
   })
   Grid.render(element)
 
-  return element
+  return {element}
 }
 
 Grid.render = (element) => {

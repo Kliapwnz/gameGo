@@ -14,7 +14,7 @@ export const Game = () => {
 
   Game.render(element, localState)
 
-  return element
+  return {element}
 }
 
 
@@ -29,16 +29,16 @@ Game.render = (element, localState) => {
 
   switch (status) {
     case GAME_STATUSES.SETTINGS:
-      const settingsModeElement = SettingsMode()
-      element.append(settingsModeElement)
+      const settingsModeInstance = SettingsMode()
+      element.append(settingsModeInstance.element)
       break;
     case GAME_STATUSES.IN_PROGRESS:
-      const gameModeElement = GamesMode()
-      element.append(gameModeElement)
+      const gameModeInstance = GamesMode()
+      element.append(gameModeInstance.element)
       break;
     case GAME_STATUSES.LOSE:
-      const LoseModeElement = LoseMode()
-      element.append(LoseModeElement)
+      const LoseModeInstance = LoseMode()
+      element.append(LoseModeInstance.element)
       break;
     case GAME_STATUSES.WIN:
       const WinModeElement = "WIN"
