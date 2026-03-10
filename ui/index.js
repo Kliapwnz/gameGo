@@ -1,4 +1,4 @@
-import {getStatus, movePlayer, subscribe} from "../state/data.js";
+import {movePlayer} from "../state/data.js";
 
 import {Game} from "./game-mode/game.component.js";
 import {MOVE_DIRECTIONS} from "../state/MOVE_DIRECTIONS.js";
@@ -7,11 +7,8 @@ import {MOVE_DIRECTIONS} from "../state/MOVE_DIRECTIONS.js";
 const rootElement = document.getElementById('root')
 
 function render() {
-  rootElement.innerHTML = ""
 
-  const status = getStatus()
-
-  const gameElement = Game(status)
+  const gameElement = Game()
 
   rootElement.append(gameElement)
 
@@ -35,4 +32,3 @@ window.addEventListener('keyup', (e) => {
 
 })
 render()
-subscribe(render)
