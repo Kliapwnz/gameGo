@@ -3,8 +3,12 @@ import {Grid} from "./game-mode/grid.component.js";
 export function GamesMode() {
   const element = document.createElement('div')
 
+  GamesMode.render(element)
 
-  element.append(Grid())
 
   return element
+}
+
+GamesMode.render = (element) => {
+  element.append(Grid())
 }
