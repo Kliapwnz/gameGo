@@ -5,7 +5,13 @@ import {LoseMode} from "../lose-mode.component.js";
 
 export const Game = (status) => {
   const element = document.createElement('div')
+  Game.render(element, status)
 
+  return element
+}
+
+
+Game.render = (element, status) => {
   switch (status) {
     case GAME_STATUSES.SETTINGS:
       const settingsModeElement = SettingsMode()
@@ -26,10 +32,4 @@ export const Game = (status) => {
     default:
       element.append("STATE IS INVALID")
   }
-  return element
-}
-
-
-Game.render = () => {
-
 }
