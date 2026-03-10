@@ -5,6 +5,7 @@ import {LoseMode} from "../lose-mode.component.js";
 
 export const Game = (status) => {
   const element = document.createElement('div')
+
   Game.render(element, status)
 
   return element
