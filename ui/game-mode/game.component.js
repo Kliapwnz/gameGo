@@ -28,3 +28,8 @@ export const Game = (status) => {
   }
   return element
 }
+
+
+Game.render = () => {
+
+}
