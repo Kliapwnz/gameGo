@@ -23,11 +23,11 @@ const _state = {
   }
 }
 
-let observer = []
+let observers = []
 
 
 export function subscribe(callback) {
-  observer = callback
+  observers.push(callback)
 }
 
 export function getStatus() {
