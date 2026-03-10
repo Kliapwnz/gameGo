@@ -25,6 +25,9 @@ const _state = {
 
 let observers = []
 
+function _notify() {
+  observers.forEach(o => o())
+}
 
 export function subscribe(callback) {
   observers.push(callback)
@@ -49,7 +52,7 @@ export function getPlayer1Position() {
 export function startGame() {
   _state.status = GAME_STATUSES.IN_PROGRESS
   _teleportGoogle()
-  observer()
+  _notify()
   jumpInterval = setInterval(_escapeGoogle, 2000)
 
 }
@@ -101,7 +104,7 @@ export function movePlayer(playerNumber, direction) {
     _catchGoogle(playerNumber)
   }
 
-  observer()
+  _notify()
 }
 
 function _isPlayerInOnePositionWithGoogle(playerNumber) {
@@ -140,7 +143,7 @@ function _teleportGoogle() {
   }
   _state.positions.google.x = newX;
   _state.positions.google.y = newY;
-  observer()
+  _notify()
 }
 
 function getRandomInt(max) {
