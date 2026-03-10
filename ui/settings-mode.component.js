@@ -4,6 +4,12 @@ export function SettingsMode() {
   const element = document.createElement('div')
 
 
+  SettingsMode.render(element)
+
+  return element
+}
+
+SettingsMode.render = (element) => {
   const gridSizeSelectElement = document.createElement('select')
   const gridSizeOptionElement = document.createElement('option')
   gridSizeOptionElement.append('4x4')
@@ -19,6 +25,4 @@ export function SettingsMode() {
   })
 
   element.append(startButtonElement)
-
-  return element
 }
