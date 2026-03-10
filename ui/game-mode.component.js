@@ -10,5 +10,6 @@ export function GamesMode() {
 }
 
 GamesMode.render = (element) => {
-  element.append(Grid())
+  const gridComponentInstance = Grid()
+  element.append(gridComponentInstance.element)
 }
