@@ -23,7 +23,7 @@ const _state = {
   }
 }
 
-let observer = null
+let observer = []
 
 
 export function subscribe(callback) {
