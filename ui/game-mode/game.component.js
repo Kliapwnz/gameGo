@@ -6,20 +6,27 @@ import {getStatus, subscribe} from "../../state/data.js";
 
 export const Game = () => {
   const element = document.createElement('div')
+  const localState = {status: null}
 
-  subscribe(()=>{
-    Game.render(element)
+  subscribe(() => {
+    Game.render(element, localState)
   })
 
-  Game.render(element)
+  Game.render(element, localState)
 
   return element
 }
 
 
-Game.render = (element) => {
-  element.innerHTML = ""
+Game.render = (element, localState) => {
   const status = getStatus()
+
+  if (localState.status === status) return;
+
+  localState.status = status
+
+  element.innerHTML = ""
+
   switch (status) {
     case GAME_STATUSES.SETTINGS:
       const settingsModeElement = SettingsMode()
