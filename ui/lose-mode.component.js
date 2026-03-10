@@ -3,10 +3,14 @@ export function LoseMode() {
 
   element.append('GOOGLE WIN')
 
+
+  LoseMode.render(element)
+
+  return element
+}
+
+LoseMode.render = ( element) => {
   const playAgainButtonElement = document.createElement('button')
   playAgainButtonElement.append('PLAY AGAIN 🎈 ')
   element.append(playAgainButtonElement)
-
-
-  return element
 }

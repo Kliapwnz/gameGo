@@ -2,6 +2,13 @@ import {getGooglePosition, getGridSize, getPlayer1Position} from "../../state/da
 
 export const Grid = () => {
   const element = document.createElement('table')
+
+  Grid.render(element)
+
+  return element
+}
+
+Grid.render = (element) => {
   const gridSize = getGridSize()
   const googlePosition = getGooglePosition()
   const player1Position = getPlayer1Position()
@@ -21,6 +28,4 @@ export const Grid = () => {
     }
     element.append(row)
   }
-
-  return element
 }
