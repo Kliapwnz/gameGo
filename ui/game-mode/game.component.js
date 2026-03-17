@@ -14,7 +14,11 @@ export const Game = () => {
 
   Game.render(element, localState)
 
-  return {element, cleanup: ()=>{}}
+  return {
+    element, cleanup: () => {
+      unsubscribe()
+    }
+  }
 }
 
 
