@@ -6,7 +6,7 @@ import {getStatus, subscribe} from "../../state/data.js";
 
 export const Game = () => {
   const element = document.createElement('div')
-  const localState = {status: null}
+  const localState = {status: null, childrenCleanups: []}
 
   const unsubscribe = subscribe(() => {
     Game.render(element, localState)
