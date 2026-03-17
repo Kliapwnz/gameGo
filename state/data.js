@@ -31,6 +31,9 @@ function _notify() {
 
 export function subscribe(callback) {
   _observers.push(callback)
+  return ()=> {
+    unsubscribe()
+  }
 }
 export function unsubscribe(callback) {
   _observers = _observers.filter(o => o !== callback)
