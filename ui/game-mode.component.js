@@ -11,6 +11,7 @@ export function GamesMode() {
 
   return {
     element, cleanup: () => {
+      localState.childrenCleanups.forEach(cc => cc())
     }
   }
 }
