@@ -14,7 +14,7 @@ export const Game = () => {
 
   Game.render(element, localState)
 
-  return {element}
+  return {element, cleanup: ()=>{}}
 }
 
 
