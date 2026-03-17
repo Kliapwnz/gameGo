@@ -6,7 +6,10 @@ export function SettingsMode() {
 
   SettingsMode.render(element)
 
-  return {element}
+  return {
+    element, cleanup: () => {
+    }
+  }
 }
 
 SettingsMode.render = (element) => {
