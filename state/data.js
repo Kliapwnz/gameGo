@@ -23,14 +23,17 @@ const _state = {
   }
 }
 
-let observers = []
+let _observers = []
 
 function _notify() {
-  observers.forEach(o => o())
+  _observers.forEach(o => o())
 }
 
 export function subscribe(callback) {
-  observers.push(callback)
+  _observers.push(callback)
+}
+export function unsubscribe(callback) {
+  _observers = _observers.filter(o => o !== callback)
 }
 
 export function getStatus() {
