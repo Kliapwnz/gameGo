@@ -8,7 +8,7 @@ export const Game = () => {
   const element = document.createElement('div')
   const localState = {status: null}
 
-  subscribe(() => {
+  const unsubscribe = subscribe(() => {
     Game.render(element, localState)
   })
 
