@@ -32,7 +32,7 @@ function _notify() {
 export function subscribe(callback) {
   _observers.push(callback)
   return ()=> {
-    unsubscribe()
+    unsubscribe(callback)
   }
 }
 export function unsubscribe(callback) {
