@@ -34,14 +34,17 @@ Game.render = (element, localState) => {
   switch (status) {
     case GAME_STATUSES.SETTINGS:
       const settingsModeInstance = SettingsMode()
+      localState.childrenCleanups.push(settingsModeInstance.cleanup)
       element.append(settingsModeInstance.element)
       break;
     case GAME_STATUSES.IN_PROGRESS:
       const gameModeInstance = GamesMode()
+      localState.childrenCleanups.push(gameModeInstance.cleanup)
       element.append(gameModeInstance.element)
       break;
     case GAME_STATUSES.LOSE:
       const LoseModeInstance = LoseMode()
+      localState.childrenCleanups.push(LoseModeInstance.cleanup)
       element.append(LoseModeInstance.element)
       break;
     case GAME_STATUSES.WIN:
