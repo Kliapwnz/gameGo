@@ -17,6 +17,7 @@ export const Game = () => {
   return {
     element, cleanup: () => {
       unsubscribe()
+      localState.childrenCleanups.forEach(cc => cc())
     }
   }
 }
