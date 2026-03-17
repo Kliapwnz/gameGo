@@ -32,6 +32,9 @@ Game.render = (element, localState) => {
 
   element.innerHTML = ""
 
+  localState.childrenCleanups.forEach(cc=>cc())
+  localState.childrenCleanups = []
+
   switch (status) {
     case GAME_STATUSES.SETTINGS:
       const settingsModeInstance = SettingsMode()
