@@ -3,7 +3,6 @@ export function LoseMode() {
 
   element.append('GOOGLE WIN')
 
-
   LoseMode.render(element)
 
   return {
