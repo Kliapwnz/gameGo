@@ -32,7 +32,7 @@ Game.render = (element, localState) => {
 
   element.innerHTML = ""
 
-  localState.childrenCleanups.forEach(cc=>cc())
+  localState.childrenCleanups.forEach(cc => cc())
   localState.childrenCleanups = []
 
   switch (status) {
