@@ -18,6 +18,7 @@ export function Cell(x, y) {
 }
 
 Cell.render = (element, x, y) => {
+  element.innerHTML = ""
   const googlePosition = getGooglePosition()
   const player1Position = getPlayer1Position()
   if (x === googlePosition.x && y === googlePosition.y) {
