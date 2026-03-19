@@ -1,4 +1,4 @@
-import {getGooglePosition, getGridSize, getPlayer1Position, subscribe} from "../../state/data.js";
+import {getGooglePosition, getGridSize, getPlayer1Position} from "../../state/data.js";
 
 export const Grid = () => {
   const element = document.createElement('table')
