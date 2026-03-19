@@ -4,7 +4,11 @@ import {Cell} from "./cell.component";
 export const Grid = () => {
   const element = document.createElement('table')
 
-  Grid.render(element)
+  const localState = {
+    childrenCleanups: []
+  }
+
+  Grid.render(element, localState)
 
   return {
     element,
@@ -13,7 +17,7 @@ export const Grid = () => {
   }
 }
 
-Grid.render = (element) => {
+Grid.render = (element, localState) => {
   element.innerHTML = ""
   const gridSize = getGridSize()
 
@@ -22,6 +26,7 @@ Grid.render = (element) => {
 
     for (let x = 0; x < gridSize.columnsCount; x++) {
       const cellInstance = Cell(x, y)
+      localState.childrenCleanups.push(cellInstance.cleanup)
       row.append(cellInstance.element)
     }
     element.append(row)
