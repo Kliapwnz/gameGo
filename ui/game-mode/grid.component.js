@@ -21,6 +21,7 @@ export const Grid = () => {
 Grid.render = (element, localState) => {
   element.innerHTML = ""
   localState.childrenCleanups.forEach(cc => cc())
+  localState.childrenCleanups = []
   const gridSize = getGridSize()
 
   for (let y = 0; y < gridSize.rowsCount; y++) {
