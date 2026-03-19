@@ -1,5 +1,5 @@
 import {getGridSize} from "../../state/data.js";
-import {Cell} from "./cell.component";
+import {Cell} from "./cell.component.js";
 
 export const Grid = () => {
   const element = document.createElement('table')

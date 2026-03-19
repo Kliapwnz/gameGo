@@ -3,7 +3,7 @@ import {getGooglePosition, getPlayer1Position} from "../../state/data.js";
 export function Cell(x, y) {
   const element = document.createElement('td')
 
-  Cell.render(element)
+  Cell.render(element, x, y)
 
   return {
     element, cleanup: () => {
