@@ -13,12 +13,14 @@ export const Grid = () => {
   return {
     element,
     cleanup: () => {
+      localState.childrenCleanups.forEach(cc => cc())
     }
   }
 }
 
 Grid.render = (element, localState) => {
   element.innerHTML = ""
+  localState.childrenCleanups.forEach(cc => cc())
   const gridSize = getGridSize()
 
   for (let y = 0; y < gridSize.rowsCount; y++) {
