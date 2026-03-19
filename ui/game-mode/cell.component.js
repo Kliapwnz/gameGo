@@ -1,12 +1,18 @@
-import {getGooglePosition, getPlayer1Position} from "../../state/data.js";
+import {getGooglePosition, getPlayer1Position, subscribe} from "../../state/data.js";
 
 export function Cell(x, y) {
   const element = document.createElement('td')
+
+  const unsubscribe = subscribe(() => {
+    Cell.render(element, x, y)
+  })
+
 
   Cell.render(element, x, y)
 
   return {
     element, cleanup: () => {
+      unsubscribe()
     }
   }
 }
