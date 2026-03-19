@@ -3,16 +3,11 @@ import {getGooglePosition, getGridSize, getPlayer1Position, subscribe} from "../
 export const Grid = () => {
   const element = document.createElement('table')
 
-  const unsubscribe = subscribe(() => {
-    Grid.render(element)
-  })
-
   Grid.render(element)
 
   return {
     element,
     cleanup: () => {
-      unsubscribe()
     }
   }
 }
