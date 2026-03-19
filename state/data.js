@@ -31,10 +31,11 @@ function _notify() {
 
 export function subscribe(callback) {
   _observers.push(callback)
-  return ()=> {
+  return () => {
     unsubscribe(callback)
   }
 }
+
 export function unsubscribe(callback) {
   _observers = _observers.filter(o => o !== callback)
 }
