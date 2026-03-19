@@ -1,5 +1,6 @@
 import {GAME_STATUSES} from "./GAME_STATUSES.js";
 import {MOVE_DIRECTIONS} from "./MOVE_DIRECTIONS.js";
+import {EVENTS} from "./EVENTS.js";
 
 const _state = {
   status: GAME_STATUSES.SETTINGS,
@@ -25,8 +26,12 @@ const _state = {
 
 let _observers = []
 
-function _notify() {
-  _observers.forEach(o => o())
+function _notify(type, payload = {}) {
+  const event = {
+    type,
+    payload
+  }
+  _observers.forEach(o => o(event))
 }
 
 export function subscribe(callback) {
@@ -58,8 +63,8 @@ export function getPlayer1Position() {
 
 export function startGame() {
   _state.status = GAME_STATUSES.IN_PROGRESS
+  _notify(EVENTS.STATUS_CHANGED)
   _teleportGoogle()
-  _notify()
   jumpInterval = setInterval(_escapeGoogle, 2000)
 
 }
@@ -111,7 +116,7 @@ export function movePlayer(playerNumber, direction) {
     _catchGoogle(playerNumber)
   }
 
-  _notify()
+  _notify(EVENTS.PLAYER_MOVED)
 }
 
 function _isPlayerInOnePositionWithGoogle(playerNumber) {
@@ -138,6 +143,7 @@ function _isInsideGrid(coords) {
 }
 
 function _escapeGoogle() {
+  _notify(EVENTS.GOOGLE_ESCAPED)
   _teleportGoogle()
 }
 
@@ -150,7 +156,7 @@ function _teleportGoogle() {
   }
   _state.positions.google.x = newX;
   _state.positions.google.y = newY;
-  _notify()
+  _notify(EVENTS.GOOGLE_JUMPED)
 }
 
 function getRandomInt(max) {
