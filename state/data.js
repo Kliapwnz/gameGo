@@ -156,10 +156,12 @@ function _teleportGoogle() {
     _teleportGoogle()
     return
   }
+  const prevPosition = {..._state.positions.google}
   _state.positions.google.x = newX;
   _state.positions.google.y = newY;
   _notify(EVENTS.GOOGLE_JUMPED, {
-    newPosition: {..._state.positions.google}
+    newPosition: {..._state.positions.google},
+    prevPosition: prevPosition
   })
 }
 
