@@ -1,10 +1,14 @@
 import {getGooglePosition, getPlayer1Position, subscribe} from "../../state/data.js";
+import {EVENTS} from "../../state/EVENTS.js";
 
 export function Cell(x, y) {
   const element = document.createElement('td')
 
-  const unsubscribe = subscribe(() => {
-    Cell.render(element, x, y)
+  const unsubscribe = subscribe((event) => {
+    if(event.type === EVENTS.GOOGLE_JUMPED || EVENTS.PLAYER_MOVED){
+      Cell.render(element, x, y)
+    }
+
   })
 
 

@@ -130,8 +130,10 @@ function _catchGoogle(playerNumber) {
   _state.points['player' + playerNumber]++
   if (_state.points['player' + playerNumber] === _state.settings.pointsToWin) {
     _state.status = GAME_STATUSES.WIN
+    _notify(EVENTS.STATUS_CHANGED)
     clearInterval(jumpInterval)
   }
+
   _teleportGoogle()
 
 }
