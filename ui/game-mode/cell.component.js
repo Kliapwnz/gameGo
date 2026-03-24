@@ -6,9 +6,13 @@ export function Cell(x, y) {
 
   const unsubscribe = subscribe((event) => {
     if(event.type === EVENTS.GOOGLE_JUMPED || EVENTS.PLAYER_MOVED){
-      Cell.render(element, x, y)
-    }
 
+      if(event.payload.newPosition.x === x && event.payload.newPosition.y === y){
+        Cell.render(element, x, y)
+      }
+
+
+    }
   })
 
 
