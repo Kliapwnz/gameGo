@@ -111,12 +111,18 @@ export function movePlayer(playerNumber, direction) {
   if (!_isInsideGrid(newCoords)) {
     return;
   }
+  let PrevPosition = _state.positions['player' + playerNumber]
   _state.positions['player' + playerNumber] = newCoords
   if (_isPlayerInOnePositionWithGoogle(playerNumber)) {
     _catchGoogle(playerNumber)
   }
 
-  _notify(EVENTS.PLAYER_MOVED)
+  _notify(EVENTS.PLAYER_MOVED, {
+    newPosition : {...newCoords},
+    prevPosition : PrevPosition,
+    playerNumber: playerNumber
+  })
+  _notify(EVENTS,)
 }
 
 function _isPlayerInOnePositionWithGoogle(playerNumber) {
