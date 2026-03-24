@@ -3,13 +3,16 @@ import {SettingsMode} from "../settings-mode.component.js";
 import {GamesMode} from "../game-mode.component.js";
 import {LoseMode} from "../lose-mode.component.js";
 import {getStatus, subscribe} from "../../state/data.js";
+import {EVENTS} from "../../state/EVENTS";
 
 export const Game = () => {
   const element = document.createElement('div')
-  const localState = {status: null, childrenCleanups: []}
+  const localState = {childrenCleanups: []}
 
-  const unsubscribe = subscribe(() => {
-    Game.render(element, localState)
+  const unsubscribe = subscribe((event) => {
+    if (event.type === EVENTS.STATUS_CHANGED) {
+      Game.render(element, localState)
+    }
   })
 
   Game.render(element, localState)
@@ -25,8 +28,6 @@ export const Game = () => {
 
 Game.render = (element, localState) => {
   const status = getStatus()
-
-  if (localState.status === status) return;
 
   localState.status = status
 
