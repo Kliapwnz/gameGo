@@ -5,9 +5,13 @@ export function Cell(x, y) {
   const element = document.createElement('td')
 
   const unsubscribe = subscribe((event) => {
-    if(event.type === EVENTS.GOOGLE_JUMPED || EVENTS.PLAYER_MOVED){
+    if (event.type === EVENTS.GOOGLE_JUMPED ||
+      event.type === EVENTS.PLAYER_MOVED) {
 
-      if(event.payload.newPosition.x === x && event.payload.newPosition.y === y){
+      if (
+        (event.payload.newPosition.x === x && event.payload.newPosition.y === y)
+        || (event.payload.prevPosition.x === x && event.payload.prevPosition.y === y)
+      ) {
         Cell.render(element, x, y)
       }
 
