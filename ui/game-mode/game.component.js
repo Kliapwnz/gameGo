@@ -3,7 +3,7 @@ import {SettingsMode} from "../settings-mode.component.js";
 import {GamesMode} from "../game-mode.component.js";
 import {LoseMode} from "../lose-mode.component.js";
 import {getStatus, subscribe} from "../../state/data.js";
-import {EVENTS} from "../../state/EVENTS";
+import {EVENTS} from "../../state/EVENTS.js";
 
 export const Game = () => {
   const element = document.createElement('div')
@@ -12,6 +12,8 @@ export const Game = () => {
   const unsubscribe = subscribe((event) => {
     if (event.type === EVENTS.STATUS_CHANGED) {
       Game.render(element, localState)
+    } else {
+      console.log("I am Game and I ignored event" + event.type)
     }
   })
 
