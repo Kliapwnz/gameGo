@@ -158,7 +158,9 @@ function _teleportGoogle() {
   }
   _state.positions.google.x = newX;
   _state.positions.google.y = newY;
-  _notify(EVENTS.GOOGLE_JUMPED)
+  _notify(EVENTS.GOOGLE_JUMPED, {
+    newPosition: {..._state.positions.google}
+  })
 }
 
 function getRandomInt(max) {
